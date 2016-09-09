@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Traff-Tec</title>
+    <title>Traf-Tec</title>
     <link href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="Stylesheet">
 
     <script src="//code.jquery.com/jquery-1.10.2.js" ></script>
