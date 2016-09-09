@@ -11,13 +11,14 @@
             </thead>
             <tbody>
             @foreach($tender as $tenders)
-
-                <tr>
+                @foreach($user as $users)
+                    <tr>
                     @if( $tenders->phases->name== 'Wins')
                         @if( $tenders ->user_id == Auth::user()->id || $tenders ->user_id2 == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id )
                             <td>   {{$tenders->name  }}</td>
                                 <td>
-                                @foreach($user as $users)
+
+
                                 {{'Created By;'}}
                                 @if( $tenders->created_user_id == $users->id)
                                     {{ $users->name}}
@@ -30,7 +31,8 @@
                                         @if( $tenders->user_id2 == $users->id)
                                             {{$users->name  }}
                                         @endif
-                                @endforeach
+
+
                             </td>
                             <td>
                                 <div class="col-sm-6">
@@ -44,6 +46,7 @@
                         @endif
                     @endif
                 </tr>
+                @endforeach
             @endforeach
 
             </tbody>
