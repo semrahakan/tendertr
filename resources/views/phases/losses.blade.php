@@ -10,8 +10,8 @@
 
                                  <th>Tender Name</th>
                                  <th>Created By </th>
-                                 <th>Assigned User</th>
-                                 <th>Assigned User</th>
+                                 <th>1.Assigned User</th>
+                                 <th>2.Assigned User</th>
                                  <th>Delete</th>
                             </thead>
                             <tbody>
@@ -19,7 +19,7 @@
                                     @foreach($tender as $tenders)
                                       <tr>
                                           @if( $tenders->phases->name== 'Losses')
-                                              @if($tenders->user_id == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id)
+                                              @if( $tenders ->user_id == Auth::user()->id || $tenders ->user_id2 == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id )
 
                                                   <td>   {{$tenders->name  }}  </td>
                                                    @foreach($user as $users)

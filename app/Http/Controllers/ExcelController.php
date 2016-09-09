@@ -33,7 +33,7 @@ class ExcelController extends Controller
 
         $exports=Tender::select('id','number','name','type','date','method','agreement','state')->get();
 
-        Excel::create('Export Customer',function ($excel) use($exports)
+        Excel::create('Export Tender',function ($excel) use($exports)
         {
             $excel->sheet('Sheet 1',function ($sheet) use($exports){
                 $sheet->fromArray($exports);

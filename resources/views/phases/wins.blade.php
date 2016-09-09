@@ -14,7 +14,7 @@
 
                 <tr>
                     @if( $tenders->phases->name== 'Wins')
-                        @if($tenders->user_id == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id)
+                        @if( $tenders ->user_id == Auth::user()->id || $tenders ->user_id2 == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id )
                             <td>   {{$tenders->name  }}</td>
                                 <td>
                                 @foreach($user as $users)
