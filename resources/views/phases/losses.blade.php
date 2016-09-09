@@ -15,8 +15,7 @@
                                  <th>Delete</th>
                             </thead>
                             <tbody>
-
-                                    @foreach($tender as $tenders)
+                            @foreach($tender as $tenders)
                                       <tr>
                                           @if( $tenders->phases->name== 'Losses')
                                               @if( $tenders ->user_id == Auth::user()->id || $tenders ->user_id2 == Auth::user()->id || $tenders ->created_user_id == Auth::user()->id )
@@ -38,18 +37,21 @@
                                                           {{$users->name  }}
                                                       @endif
                                                   </td>
-                                                      <td>   <div class="col-sm-6">
-                                                              {!! Form::open(['route'=>['tender.destroy',$tenders->id ],'method'=>'DELETE','name'=>'deleteM']) !!}
+                                                  @endforeach
+                                                   <td>   <div class="col-sm-6">
+                                                              {!! Form::open(['route'=>['tender.destroy',$tenders->id ],'method'=>'DELETE','name'=>'deleteT']) !!}
 
-                                                              {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmation(event)']) !!}
+                                                              {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmationdeleteLoss(event)']) !!}
 
                                                               {!! Form::close() !!}
-                                                          </div></td>
-                                              @endforeach
+                                                          </div>
+                                                   </td>
+
+
                                             @endif
                                               @endif
 
-                                       </tr>
+                                      </tr>
                                     @endforeach
 
                             </tbody>
@@ -57,5 +59,14 @@
                     </div>
                  </div>
 
+                <script>
 
+                    function confirmationdeleteLoss(e) {
+                        var answer = confirm("Are you sure?")
+                        if (!answer) {
+                            e.preventDefault();
+                            return false;
+                        }
+                    }
+                </script>
 @endsection

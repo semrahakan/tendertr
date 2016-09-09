@@ -35,7 +35,7 @@
                                             <div class="col-sm-6">
                                                 {!! Form::open(['route'=>['tender.destroy',$tenders->id ],'method'=>'DELETE','name'=>'deleteM']) !!}
 
-                                                {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmation(event)']) !!}
+                                                {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmationdeleteWin(event)']) !!}
 
                                                 {!! Form::close() !!}
                                             </div>
@@ -49,5 +49,14 @@
                     </table>
                 </div>
 
+    <script>
 
+        function confirmationdeleteWin(e) {
+            var answer = confirm("Are you sure?")
+            if (!answer) {
+                e.preventDefault();
+                return false;
+            }
+        }
+    </script>
 @endsection
