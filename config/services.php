@@ -15,8 +15,10 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('traftecsystems.uk'),
-        'secret' => env('key-a0a73fc034c3477ebc9e263ff655f979'),
+
+            'domain' => env('MAILGUN_DOMAIN'),
+            'secret' => env('MAILGUN_SECRET'),
+
     ],
 
     'mandrill' => [
