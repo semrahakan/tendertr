@@ -54,7 +54,7 @@ return array(
     |
     */
 
-    'from' => array('address' => null, 'name' => null),
+    'from' => array('address' => 'trafftec@gmail.com', 'name' => 'traftec'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
     |
     */
 
-    'username' => null,
+    'username' => 'postmaster@traftecsystems.uk',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
     |
     */
 
-    'password' => null,
+    'password' => 'semrahakan',
 
     /*
     |--------------------------------------------------------------------------
