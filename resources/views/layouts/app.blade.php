@@ -66,7 +66,7 @@
                     <li><a href="{{URL::to('/home')  }}" style="color: darkblue">Home</a></li>
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}" style="color: darkblue">Login</a></li>
-                        <li><a href="{{ url('/adminpage') }}"style="color: darkblue">Create an account </a></li>
+
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: darkblue">Other <b class="caret"></b></a>
