@@ -22,8 +22,10 @@ class CreateTendersTable extends Migration
             $table->string('agreement');
             $table->string('priority');
             $table->text('state');
-            $table->text('comment');
+            $table->text('details');
             $table->integer('municipality_id')->nullable()->unsigned();
+            $table->integer('user_id2');
+            $table->integer('updated_user_id');
             $table->timestamps();
         });
     }
