@@ -1,0 +1,214 @@
+
+.mini-submenu{
+    display:none;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    padding: 9px;
+    /*position: relative;*/
+    width: 250px;
+
+}
+#list-groupid{
+
+    width: 250px;
+
+    margin-top: 30px;
+}
+
+.mini-submenu:hover{
+    cursor: pointer;
+}
+
+.mini-submenu .icon-bar {
+    border-radius: 1px;
+    display: block;
+    height: 2px;
+    width: 22px;
+    margin-top: 3px;
+}
+
+.mini-submenu .icon-bar {
+    background-color: #8c8c8c;
+}
+
+
+#navbar-header{
+    padding: 10px;
+    height: 50px;
+    position: relative;
+    margin-top: 5px;
+
+}
+#slide-submenu{
+
+    display: inline-block;
+    padding: 0 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #8c8c8c;
+}
+#wrapper {
+    padding-left: 250px;
+    transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+    
+    margin-left: -250px;
+    margin-top: 30px;
+    width: 250px;
+    background: #CCC;
+    position: fixed;
+    height: 50%;
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.carousel-inner{
+    height: 200px;
+    width: 80%;
+    position: fixed;
+    margin-bottom: -100px;
+}
+#myCarousel{
+    
+    height: 200px;
+    width: 80%;
+    position: fixed;
+    margin-top: 30px;
+}
+
+@media (max-width:767px) {
+
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        left: 0;
+    }
+
+    #wrapper.active {
+        position: relative;
+        left: 250px;
+    }
+
+    #wrapper.active #sidebar-wrapper {
+        left: 250px;
+        width: 250px;
+        transition: all 0.4s ease 0s;
+    }
+
+}
+
+.author-image{
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+.tender{
+    margin-bottom: 45px;
+}
+.author-name{
+    float: left;
+    margin-left: 15px;
+    font-style: italic;
+
+}
+.author-name>h4{
+    margin: 5px 0px;
+
+}
+.tender-content{
+    clear: both;
+    margin-left: 25px;
+}
+.author-time{
+    font-size: 11px;
+    font-style: italic;
+    color: blue;
+}
+
+.update-content{
+    font-size: 12px;
+    color: darkolivegreen;
+    font-style: oblique;
+
+}
+.detail{
+    font-size: 18px;
+    font-style: oblique;
+    background-color: lightcyan;
+}
+
+.detail-name{
+    margin-top: -5%;
+
+}
+
+.actions{
+    margin-top: 10px;
+    margin-left:15%;
+}
+.tender>h6{
+
+    font-style: italic;
+    color: red;
+}
+.detail-time{
+    font-size: 12px;
+    font-style: italic;
+    color: blue;
+
+}
+.tender-name{
+    font-size: 12px;
+    font-style: italic;
+    color: darkgreen;
+    margin-top: 10%;
+  
+}
+.tender-comment{
+    font-size: 15px;
+    color: darkblue;
+    font-style: oblique;
+
+}
+.tender-home{
+    font-size: 15px;
+    color: red;
+    font-style: oblique;
+
+}
+
+.author-name2{
+
+    font-size: 12px;
+
+}
+
+.timeReminder{
+
+    font-size: 12px;
+    font-style: italic;
+    color: blue;
+    margin-top: -5%;
+}
