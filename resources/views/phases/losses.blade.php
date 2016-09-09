@@ -38,13 +38,14 @@
                                                       @endif
                                                   </td>
                                                   @endforeach
-                                                   <td>   <div class="col-sm-6">
+                                                   <td>
+                                                       <div class="col-sm-6">
                                                               {!! Form::open(['route'=>['tender.destroy',$tenders->id ],'method'=>'DELETE','name'=>'deleteT']) !!}
 
                                                               {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmationdeleteLoss(event)']) !!}
 
                                                               {!! Form::close() !!}
-                                                          </div>
+                                                       </div>
                                                    </td>
 
 

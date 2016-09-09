@@ -22,32 +22,33 @@
                                 @if( $tenders->created_user_id == $users->id)
                                     {{ $users->name}}
                                     @endif<br>
-                                        {{ 'Assigned Users;' }}
+                                        {{ '1.Assigned User;' }}
                                         @if( $tenders->user_id == $users->id)
                                             {{$users->name  }}
                                         @endif <br>
+                                        {{ '2.Assigned User;' }}
                                         @if( $tenders->user_id2 == $users->id)
                                             {{$users->name  }}
                                         @endif
                                 @endforeach
                             </td>
                             <td>
-                                            <div class="col-sm-6">
+                                <div class="col-sm-6">
                                                 {!! Form::open(['route'=>['tender.destroy',$tenders->id ],'method'=>'DELETE','name'=>'deleteM']) !!}
 
                                                 {!! Form::submit('Delete',['class'=>'btn btn-danger','id'=>'btn-submit','name'=>'btn-submit','onclick'=>'confirmationdeleteWin(event)']) !!}
 
                                                 {!! Form::close() !!}
-                                            </div>
-                                        </td>
-                                    @endif
-                                @endif
-                             </tr>
-                            @endforeach
+                                </div>
+                            </td>
+                        @endif
+                    @endif
+                </tr>
+            @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
+            </tbody>
+        </table>
+    </div>
 
     <script>
 
