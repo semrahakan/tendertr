@@ -2,6 +2,7 @@
 
 <!-- Main Content -->
 @section('content')
+{{ csrf_field() }}
     <div class="panel panel-default">
                 <div class="panel-heading"> <h3 style="color: darkblue">Reset Password</h3></div>
                 <div class="panel-body">
