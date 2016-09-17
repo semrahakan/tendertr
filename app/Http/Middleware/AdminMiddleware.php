@@ -18,12 +18,8 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         if (! Auth::guest() && Auth::user()->admin) {
-
-
             return $next($request);
         }
         return redirect('/');
-
-
     }
 }

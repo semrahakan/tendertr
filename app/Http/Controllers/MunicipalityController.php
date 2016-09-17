@@ -7,7 +7,6 @@ use App\Municipality;
 use  App\Tender;
 use App\PhasesTender;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 
@@ -87,7 +86,7 @@ class MunicipalityController extends Controller
         Session::flash('success','municipality information is successfully saved');
 
         //redirect
-        return redirect() ->route('tender.create'); //this goes to show method
+        return redirect() ->route('tender.create');
     }
 
     /**
@@ -120,7 +119,6 @@ class MunicipalityController extends Controller
     {
         //find the post in the database and save as a variable
         $municipality = Municipality::find($id);
-        //return the view make sure you have that view as edit in municipality folder
         return view('municipality.edit')->with('municipality',  $municipality );
 
 
@@ -178,6 +176,6 @@ class MunicipalityController extends Controller
         Session::flash('success','the information for municipality was deleted');
         return redirect()->route('municipality.show',$municipality);
 
-       // return response()->json(array('sms'=>'deleted'));
+
     }
 }

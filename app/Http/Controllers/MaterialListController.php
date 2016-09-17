@@ -55,7 +55,6 @@ class MaterialListController extends Controller
         $material = new Material_List();
         $material->material_name = $request->material_name;
         $material->save();
-
         Session::flash('success',' material details were saved!');
         return redirect() ->route('materials.create');
     }
@@ -97,7 +96,6 @@ class MaterialListController extends Controller
     {
         $this ->validate($request,array(
             'material_name' =>'required|max:255',));
-
         $material=Material_List::find($id);
         $material->material_name = $request->input('material_name');
         $material->save();

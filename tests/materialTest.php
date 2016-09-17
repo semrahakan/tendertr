@@ -11,8 +11,15 @@ class materialTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    use DatabaseMigrations;
+    use WithoutMiddleware;
+    public function testMaterial()
     {
-        $this->assertTrue(true);
+
+        $this->visit(route ('materials.create'))
+            ->type('movable camera', 'material_name')
+            ->press('Create')
+            ->see('Material');
+
     }
 }

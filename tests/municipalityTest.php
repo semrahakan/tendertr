@@ -11,8 +11,22 @@ class municipalityTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    use DatabaseMigrations;
+    use WithoutMiddleware;
+    public function testMunicipalityForm()
     {
-        $this->assertTrue(true);
+
+        $this->visit(route('municipality.create'))
+        ->type('Istanbul Kadikoy', 'muniName')
+        ->type('HASANPASA Neighborhood FAHRETTINKERIM GOKAY Street. NO:2 ', 'address')
+        ->type('Istanbul', 'city')
+        ->type('0216 5425000', 'phone')
+        ->type('semra hakan', 'personName')
+        ->type('00', 'personPhone')
+        ->type('semrahakan@gmail.com', 'personMail')
+        ->press('Send')
+        ->see('Tender');
+
+
     }
 }

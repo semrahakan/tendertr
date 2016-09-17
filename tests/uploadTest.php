@@ -11,8 +11,12 @@ class uploadTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testUpload()
     {
-        $this->assertTrue(true);
+
+        $file = new Symfony\Component\HttpFoundation\File\UploadedFile( storage_path( 'app/test-file.csv' ), 'test-file.csv', 'text/plain', 446 );
+        $this->call( 'POST', '/upload', [], [], [ 'csv_file' => $file ] );
+        $this->assertResponseOk();
+
     }
 }

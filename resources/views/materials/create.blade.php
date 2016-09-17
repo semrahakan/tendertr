@@ -68,20 +68,15 @@
                         <p>Create A Material Item</p>
                         <label> Material Name:</label>
                         <input class="form-control" name="material_name">
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button class="btn btn-default"  type="submit" name="Create" value="Create" id="create">
                             Create </button>
-
                         <input type="hidden" name="_token" value="{{ Session::token() }}">
                     </div>
                 </div>
             </form>
-        </div>
-        <div>
-
         </div>
     </div>
     </div>

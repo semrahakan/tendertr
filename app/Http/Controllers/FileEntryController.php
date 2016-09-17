@@ -4,22 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Tender;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use App\Fileentry;
-
-use Illuminate\Http\UploadedFile;
-
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
 
 class FileEntryController extends Controller
 {
+    //the source code was taken from here: https://www.codetutorial.io/laravel-5-file-upload-storage-download/
     public function index()
     {
         $entries = Fileentry::all();
@@ -29,7 +23,6 @@ class FileEntryController extends Controller
     }
 
     public function add(Request $request, $id) {
-        //bunu kullanmıyorsun route takı upload ı kullanıyorsun
         $tender=Tender::find($id);
         $file = $request->file('file');
         $destinationPath =storage_path()."/app/";
@@ -52,8 +45,6 @@ class FileEntryController extends Controller
     public function get($original_filename){
 
         $entry = Fileentry::where('original_filename', '=', $original_filename)->firstOrFail();
-        //$destinationPath = public_path()."/uploads/".$entry->filename;
-
         $pathToFile=storage_path()."/app/".$entry->original_filename;
         return response()->download($pathToFile);
 
@@ -68,7 +59,7 @@ class FileEntryController extends Controller
         $fullPath =storage_path()."/app/".$contact->original_filename;
 
         File::delete($fullPath);
-        //asagısı db siler sadece
+
         $contact->delete();
 
 

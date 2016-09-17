@@ -16,7 +16,13 @@ class registrationTest extends TestCase
     public function testRegister()
     {
 
-        
+        $this->visit(url('/adminpage'))
+            ->type('trafftec', 'name')
+            ->type('trafftec@example.com', 'email')
+            ->type('testpass123', 'password')
+            ->press('Register')
+            ->see('Home');
+
 
 
 

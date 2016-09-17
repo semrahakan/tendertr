@@ -11,8 +11,17 @@ class reminderTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    use DatabaseMigrations;
+    use WithoutMiddleware;
+    public function testReminder()
     {
-        $this->assertTrue(true);
+        $this->visit(url('indexReminder'))
+
+            ->type('reminder example ','user_reminder')
+
+            ->press('CreateReminder');
+
+
     }
+
 }

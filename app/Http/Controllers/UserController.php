@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         //using auth middleware so only registered users can see
         $this->middleware('auth');
-       // $this->middleware('isAdmin');
+
 
     }
 
@@ -136,6 +136,7 @@ class UserController extends Controller
             $user=Auth::user();
             $user->avatar=$filename;
             $user->save();
+            Session::flash('success','user picture was successfully uploaded.');
             return view('profile',array('user'=>Auth::user()));
 
         }

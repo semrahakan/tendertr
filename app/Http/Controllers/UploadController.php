@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Tender;
-use Illuminate\Contracts\Filesystem\Filesystem;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Auth;
 class UploadController extends Controller
 {

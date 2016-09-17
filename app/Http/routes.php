@@ -110,6 +110,7 @@ Route::get('/autocomplete',array('as' =>'autocomplete','uses'=>'EmailController@
 Route::resource('materials','MaterialListController');
 
 //search for contact
+//the source code was taken from here http://justlaravel.com/search-functionality-laravel/
 Route::any('/search',function(){
     $q = Input::get ( 'search' );
     $user = Contact::where('contactName','LIKE','%'.$q.'%')->orWhere('contactEmail','LIKE','%'.$q.'%')->get();
@@ -125,7 +126,7 @@ Route::get('/autocomplete',array('as' =>'autocomplete','uses'=>'ContactControlle
 
 
 //search for material
-
+//the source code was taken from here http://justlaravel.com/search-functionality-laravel/
 Route::any('/searchMaterial',function(){
     $a= Input::get ( 'searchMaterial' );
     $user = Material_List::where('material_name','LIKE','%'.$a.'%')->get();
@@ -138,6 +139,7 @@ Route::any('/searchMaterial',function(){
 Route::get('/autocompletematerial',array('as' =>'autocompletematerial','uses'=>'MaterialListController@autocompletematerial'));
 
 //search for tender
+//the source code was taken from here http://justlaravel.com/search-functionality-laravel/
 Route::any('/searchTender',function(){
 
     $municipality=\App\Municipality::all();
@@ -161,7 +163,7 @@ Route::get('/autocompleteTender',array('as' =>'autocompleteTender','uses'=>'Tend
 //excel
 Route::get('/getImport','ExcelController@getImport');
 Route::post('/postImport','ExcelController@postImport');
-Route::get('/getExport','ExcelController@getExport');
+
 Route::get('/getExport2','ExcelController@getExport2');
 
 
@@ -176,17 +178,15 @@ Route::post('add{id}',[
 
 
 Route::get('/deleteFile{id}',['as'=>'/deleteFile','uses'=>'FileEntryController@deleteFile']);
-
+//the source code was taken from here: https://www.codetutorial.io/laravel-5-file-upload-storage-download/
 Route::post('/upload', function () {
     $file = Input::file('file');
     if($file) {
         $destinationPath =storage_path()."/app/";
         $filename = $file->getClientOriginalName();
-        $upload_success = Input::file('file')->move($destinationPath, $filename);
+        $success = Input::file('file')->move($destinationPath, $filename);
 
-        if ($upload_success) {
-            // resizing an uploaded file
-            // Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+        if ($success) {
             $entry = new Fileentry();
             $entry->mime = $file->getClientMimeType();
             $entry->original_filename = $file->getClientOriginalName();
@@ -201,18 +201,16 @@ Route::post('/upload', function () {
         }
     }return view('welcome');
 });
-
+//the source code was taken from here: https://www.codetutorial.io/laravel-5-file-upload-storage-download/
 Route::post('/uploadSecond', function (Request $request) {
     $tender_id =$request['tender_id'];
     $file = Input::file('file');
     if($file) {
         $destinationPath = storage_path() . "/app/";
         $filename = $file->getClientOriginalName();
-        $upload_success = Input::file('file')->move($destinationPath, $filename);
+        $success = Input::file('file')->move($destinationPath, $filename);
 
-        if ($upload_success) {
-            // resizing an uploaded file
-            // Image::make($destinationPath . $filename)->resize(100, 100)->save($destinationPath . "100x100_" . $filename);
+        if ($success) {
             $entry = new Fileentry();
             $entry->tender_id =$tender_id;
             $entry->mime = $file->getClientMimeType();
@@ -267,11 +265,12 @@ Route::get('material{id}',['as'=>'material','uses'=>'TenderController@material']
 
 
 
-
+//the source code for ongoingtenders was taken here:
+//http://www.expertphp.in/article/laravel-5-ajax-crud-example-to-build-web-application-without-page-refresh
 Route::get('ongoingTenders', function () {
     $products = App\Tender::all();
     $user=App\User::all();
-    return view('tender.deneme')->withProducts($products)->withUser($user);
+    return view('tender.ongoingTender')->withProducts($products)->withUser($user);
 });
 Route::get('ongoingTenders/{product_id?}',function($product_id){
     $product = App\Tender::find($product_id);
@@ -301,7 +300,8 @@ Route::put('ongoingTenders/{product_id?}',function(Request $request,$product_id)
 
 
 
-
+//the source code for indexReminder was taken here:
+//http://www.expertphp.in/article/laravel-5-ajax-crud-example-to-build-web-application-without-page-refresh
 
 Route::get('indexReminder', function () {
     $products = App\Reminder::all();
@@ -332,10 +332,7 @@ Route::put('indexReminder/{product_id?}',function(Request $request,$product_id){
     }
 });
 
-Route::get('denemee{id}',['as'=>'denemee','uses'=>'TenderController@denemee']);
 
 
-Route::put(' denemeStroe{id}',['as'=>'denemeStroe','uses'=>'TenderController@denemeStroe']);
 
-Route::resource('order','OrderController');
 

@@ -104,7 +104,7 @@
             }
         }
     </script>
-
+<!-- the source code for printing was taken here: http://stackoverflow.com/questions/33732739/print-a-div-content-using-jquery -->
     <script>
         function printDiv()
         {

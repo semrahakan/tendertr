@@ -24,7 +24,6 @@ class ReminderController extends Controller
     {
         //using auth middleware so only registered users can see
         $this->middleware('auth');
-
     }
 
     public function index()
@@ -32,14 +31,10 @@ class ReminderController extends Controller
         $reminder= Reminder::all();
         return view('reminder.index')->withReminder($reminder);
 
-
     }
 
-
     public function indexfor(){
-
         $reminder=DB::table('reminders')->orderBy('id','desc')->get();
-
         return view('/reminder.indexfor')->withReminder($reminder);
 
     }
@@ -55,15 +50,11 @@ class ReminderController extends Controller
     {
         $this ->validate($request,array(
             'user_reminder' =>'required',
-
-
         ));
         //creating new instance of model
         $reminder= new Reminder();
         $reminder->user_reminder = $request->user_reminder;
         $reminder -> user_id= Auth::user()->id;
-
-
         $reminder->save();
         Session::flash('success','the reminder is successfully saved');
 

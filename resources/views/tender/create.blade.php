@@ -60,7 +60,6 @@
             </select>
             <a data-toggle="collapse" href="#collapse1">Wish to assign second user?</a>
             <div id="collapse1" style="margin-top: -3%; margin-left: 55%">
-
                 <select class="selectpicker" name="user_id2">
                     @foreach($users as $user)
                         <option value="{{ $user->id }}" > {{ $user->name }}</option>
@@ -68,7 +67,6 @@
                 </select>
             </div>
             <br>
-
             <br>
             {{Form::label('material_list','Material List:')}}
             <select class="selectpicker" multiple  name="material_list[]" data-live-search="true" data-selected-text-format="count > 3">

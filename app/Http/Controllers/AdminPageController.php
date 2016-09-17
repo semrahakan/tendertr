@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\URL;
+
 
 class AdminPageController extends Controller
 {
@@ -38,25 +38,17 @@ class AdminPageController extends Controller
             'email'=>'required',
             'password'=>'required',
         ));
-        
 
-        // this is for signup button
         $name = $request['name'];
         $email = $request['email'];
         $password = bcrypt($request['password']);
-
-
         $user = new User(); // new instance of user object
-
         // accessing the database fields
         $user -> name=  $name ;
         $user -> email = $email;
         $user -> password =  $password;
-
-
         $user ->save();// write to database
         Session::flash('success','user has been created!');
-
         return redirect('/adminpage');
 
     }

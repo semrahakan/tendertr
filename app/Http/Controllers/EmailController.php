@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Input;
+
 use Illuminate\Support\Facades\Auth;
 use DB;
 use Illuminate\Support\Facades\Session;

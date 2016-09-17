@@ -11,8 +11,18 @@ class contactTest extends TestCase
      *
      * @return void
      */
+    use DatabaseMigrations;
+    use WithoutMiddleware;
     public function testExample()
     {
-        $this->assertTrue(true);
+
+
+        $this->visit(route('contact.index'))
+            ->type('example ','contactName')
+            ->type('012345','contactPhone')
+            ->type('example@example.com','contactEmail')
+            ->type('Leverson Street','address')
+            ->press('createContact');
     }
+
 }

@@ -23,8 +23,6 @@ class PhasesTenderController extends Controller
 
     public function index()
     {
-        //display a view of all of our categories
-        //it will also have a from to create
 
         $phases = PhasesTender::all();
 
@@ -58,7 +56,7 @@ class PhasesTenderController extends Controller
      */
     public function store(Request $request)
     {
-        //save a new phase
+
     }
 
     /**
@@ -96,15 +94,8 @@ class PhasesTenderController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-
         $tender =Tender::find($id);
-
-
-
-
         $tender->save();
-
         return redirect() ->route('phases.index')->withTender($tender);
     }
 
@@ -116,7 +107,7 @@ class PhasesTenderController extends Controller
      */
     public function destroy($id)
     {
-          }
+    }
     
     
 }

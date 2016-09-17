@@ -114,15 +114,14 @@ class TenderController extends Controller
         $tender->priority = $priority;
         $tender->state = $state;
         $tender->details = $details;
-
         $tender->phases_id=$phases_id;
         $tender->user_id=$user_id;
         $tender->user_id2=$user_id2;
 
 
         $tender -> created_user_id= Auth::user()->id;
-       $municipality_id = DB::table('municipalities')->max('id');
-       $tender->municipality_id=$municipality_id;
+        $municipality_id = DB::table('municipalities')->max('id');
+        $tender->municipality_id=$municipality_id;
 
         $tender->save();
 
@@ -203,9 +202,6 @@ class TenderController extends Controller
             $tags2[$tag->id]=$tag->material_name;
         }
 
-
-
-        //return the view make sure you have that view as edit in municipality folder
         return view('tender.edit')->with('tender',  $tender )->withPhases($tphase)->withTags($tags2);
     }
 
@@ -233,7 +229,6 @@ class TenderController extends Controller
             'details'=>'required'
 
         ));
-
         $tender= Tender::find($id);
         $tender->number = $request->input('number');
         $tender->name=$request->input('name');
@@ -243,21 +238,16 @@ class TenderController extends Controller
         $tender->agreement=$request->input('agreement');
         $tender->priority =$request->input('priority');
         $tender->phases_id =$request->input('phases_id');
-
         $tender->state =$request->input('state');
         $tender->details =$request->input('details');
         $tender->updated_user_id =Auth::user()->id;
         $tender->save();
-
-
-
         //sending emails when there is an update
-
         $user=User::all();
         $assigneduser_email="";
         $assigneduser2_email="";
         $created_user_mail="";
-        foreach ($user as $users){//degısıklıgı yapan assigned user degılse
+        foreach ($user as $users){//checking the user who changed items
             if( $tender->user_id !== Auth::user()->id )
             {
                 if ($users->id == $tender->user_id){
@@ -267,7 +257,7 @@ class TenderController extends Controller
             else {
                 $assigneduser_email="trafftec@gmail.com";
             }
-            //degisikligi yapan 2.user degilse
+
             if ( $tender->user_id2 !== Auth::user()->id)
             {
                 if ($users->id == $tender->user_id2){
@@ -321,7 +311,6 @@ class TenderController extends Controller
         Session::flash('success',' tender was deleted');
         return redirect()->route('tender.show',$tender);
 
-        //   return response()->json(array('sms'=>'deleted'));
     }
 
 
@@ -361,7 +350,7 @@ class TenderController extends Controller
         $tender->save();
         $products = Tender::all();
         $user=User::all();
-        return view('tender.deneme')->withProducts($products)->withUser($user);
+        return view('tender.ongoingTender')->withProducts($products)->withUser($user);
     }
 
 
@@ -393,7 +382,7 @@ class TenderController extends Controller
 
             $tags2[$tag->id]=$tag->material_name;
         }
-        //return the view make sure you have that view as edit in municipality folder
+       
         return view('tender.editMaterial')->with('tender',  $tender )->withPhases($tphase)->withTags($tags2);
     }
 

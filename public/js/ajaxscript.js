@@ -1,3 +1,6 @@
+
+//the source code for this was taken here:
+//http://www.expertphp.in/article/laravel-5-ajax-crud-example-to-build-web-application-without-page-refresh
 var url = "/indexReminder";
 //display modal form for product editing
 $(document).on('click','.open_modal',function(){

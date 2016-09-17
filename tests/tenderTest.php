@@ -11,8 +11,26 @@ class tenderTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    use DatabaseMigrations;
+    use WithoutMiddleware;
+    public function testTender()
     {
-        $this->assertTrue(true);
+            $this->visit(route('tender.create'))
+                ->type('01', 'number')
+                ->type('traffic lambs tender ', 'name')
+                ->type('production', 'type')
+                ->type('2016', 'date')
+                ->type('open tender', 'method')
+                ->type('contract', 'agreement')
+                ->select('1', 'priority')
+                ->select('1', 'phases_id')
+                ->type('proposal evaluation completed', 'state')
+                ->type('the next meeting will be on 25', 'details')
+                ->select('7', 'user_id')
+                ->select('7', 'user_id2')
+                ->type('100', 'mun_id')
+                ->see('Tender');
+
+
     }
 }

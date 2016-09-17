@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<!-- the collapsable layout was taken from here: http://bootsnipp.com/snippets/featured/nav-sidebar-with-toggle-button -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -120,14 +120,11 @@
         @if( \Illuminate\Support\Facades\Session::has('success'))
             <div class="alert alert-success " role="alert" style="margin-top: 3%">
                 <strong>Success:</strong> {{\Illuminate\Support\Facades\Session::get('success')}}
-
             </div>
         @endif
-
         @if( \Illuminate\Support\Facades\Session::has('warning'))
             <div class="alert alert-warning " role="alert" style="margin-top: 3%">
-                <strong>Success:</strong> {{\Illuminate\Support\Facades\Session::get('warning')}}
-
+                <strong>Warning:</strong> {{\Illuminate\Support\Facades\Session::get('warning')}}
             </div>
         @endif
     </nav>
