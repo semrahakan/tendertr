@@ -120,8 +120,8 @@ class UserController extends Controller
     {
         $user=User::find($id);
         $user->delete();
-
-        return redirect()->route('user.show',$user);
+          Session::flash('success','user was successfully deleted.');
+        return view('welcome');
 
     }
 
